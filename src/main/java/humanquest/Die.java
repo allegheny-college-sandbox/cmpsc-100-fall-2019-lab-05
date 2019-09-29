@@ -42,7 +42,7 @@ public class Die {
    * 
    */
   public String toString() {
-    result = // TODO Cast the roll result as a string
+    result = // TODO Create roll result as a string
     return result;
   }
 }
