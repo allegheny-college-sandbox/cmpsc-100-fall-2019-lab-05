@@ -1,0 +1,45 @@
+---
+name: lab-05
+break: true
+indent: 4
+---
+src/main:
+    java:
+        humanquest/DisplayEncounters.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{YOUR NAME HERE}" --count 0 --exact
+            MatchFileFragment --fragment "import humanquest.Die;" --count 1 --exact
+            MatchFileFragment --fragment ".roll()" --count 1
+            MatchFileFragment --fragment "total +=" --count 1
+            MatchFileFragment --fragment ".getRoll()" --count 1
+            MatchFileRegex --regex "new Die([0-9]{,2}|sides)" --count 1
+            MatchFileRegex --regex "encounterReport\(title,(\s)?check,(\s)?total\);" --count 1 --exact
+
+src/main:
+    java:
+        humanquest/Die.java:
+            ConfirmFileExists
+            MatchFileFragment --fragment "TODO" --count 0 --exact
+            MatchFileFragment --fragment "{YOUR NAME HERE}" --count 0 --exact
+            MatchFileFragment --fragment "sides = faces" --count 1 --exact
+            MatchFileFragment --fragment "value = dieObject.nextInt(sides) + 1;" --count 1 --exact
+            MatchFileFragment --fragment "return value;" --count 1 --exact
+            MatchFileFragment --fragment "String result = Integer.toString(value);" --count 1 --exact
+            MatchFileFragment --fragment "return result;" --count 1 --exact
+            
+writing:
+    reflection.md:
+        ConfirmFileExists
+        CountFileWords --count 500
+        MatchFileFragment --fragment "TODO" --count 0 --exact
+        MatchFileFragment --fragment "Lorem ipsum..." --count 0 --exact
+        CountMarkdownTags --tag "heading" --count 5 --exact
+        CountMarkdownTags --tag "code_block" --count 1
+        CountMarkdownTags --tag "list" --count 1
+
+CountCommits --count 5
+ExecuteCommand --command "gradle build"
+MatchCommandFragment --command "gradle run" --fragment "The Boss" --count 1 --exact
+MatchCommandRegex --command "gradle run" --regex "Gator\sneeded\sto\sroll\t([1])?[0-9]{,2}" --count 1 --exact
+MatchCommandRegex --command "gradle run" --regex "Gator\'s\sactual\sroll\t([1])?[0-9]{,2}" --count 1 --exact 
