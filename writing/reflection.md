@@ -20,4 +20,6 @@ Lorem ipsum...
 
 Lorem ipsum...
 
-## Describe the relationship between `Die.java` and `DisplayEncounters.java`
+## Describe the relationship between `Die.java` and `DisplayEncounters.java` (it may be easier to try a UML diagram)
+
+Services like [this one](https://www.draw.io/) can help. You can always draw and take a picture of it. Keep in mind that you may need to use image inclusion Markdown. (See the guides in the README or your trifold handout).
